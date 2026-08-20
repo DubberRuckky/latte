@@ -1,5 +1,6 @@
 import pygame
 import random as rand
+from time import sleep
 
 pygame.init()
 
@@ -20,25 +21,31 @@ clock = pygame.time.Clock()
 melon_w, melon_h = melon.get_size()
 screen_w, screen_h = screen.get_size()
 
-x = (screen_w + screen_h)/2
-y = (screen_w + screen_h)/2
+x = (screen_w - melon_w)//2
+y = (screen_h - melon_h)//2
 
-min_w_touch = 0
-min_h_touch = 0
+min_w_touch = 0 + melon_w
+min_h_touch = 0 + melon_h
 
 max_w_touch = screen_w - melon_w
 max_h_touch = screen_h - melon_h
+
+screen.fill((255, 255, 255))
+icon_loading = pygame.transform.scale(icon, (100, 100))
+screen.blit(icon_loading, icon_loading.get_rect(center=(screen_w // 2, screen_h // 2)))
+pygame.display.flip()
+sleep(5)
 
 while load:
 
     x = rand.randint(min_w_touch, max_w_touch)
     y = rand.randint(min_h_touch, max_h_touch)
-
+  
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             load = False
 
-    #screen.fill((0, 0, 0))
+    screen.fill((0, 0, 0))
     screen.blit(melon , (x,y))
     pygame.display.flip()
 
