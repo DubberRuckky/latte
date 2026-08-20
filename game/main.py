@@ -4,7 +4,7 @@ from time import sleep
 
 pygame.init()
 
-screen = pygame.display.set_mode((400,400))
+screen = pygame.display.set_mode((768,480))
 pygame.display.set_caption("latte")
 
 icon = pygame.image.load(r"game\assets\Icon.png")
@@ -31,7 +31,7 @@ max_w_touch = screen_w - melon_w
 max_h_touch = screen_h - melon_h
 
 screen.fill((255, 255, 255))
-icon_loading = pygame.transform.scale(icon, (100, 100))
+icon_loading = pygame.transform.scale(icon, (300, 300))
 screen.blit(icon_loading, icon_loading.get_rect(center=(screen_w // 2, screen_h // 2)))
 pygame.display.flip()
 sleep(5)
