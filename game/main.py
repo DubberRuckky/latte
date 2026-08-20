@@ -5,7 +5,10 @@ pygame.init()
 screen = pygame.display.set_mode((400,400))
 pygame.display.set_caption("latte")
 
-melon = pygame.image.load(r"game\images\divexfre-red-fruit-9741345_640.png").convert_alpha()
+icon = pygame.image.load(r"game\assets\Icon.png")
+pygame.display.set_icon(icon)
+
+melon = pygame.image.load(r"game\assets\divexfre-red-fruit-9741345_640.png").convert_alpha()
 melon = pygame.transform.scale(melon , (50,50))
 
 load = True
